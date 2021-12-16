@@ -1,0 +1,36 @@
+<!doctype html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<script src="js/objects.js"></script>
+<script src="js/loader.js"></script>
+<script src="js/script.js"></script>
+<link rel="stylesheet" href="css/styles.css">
+</head>
+
+<body>
+
+
+  <select name="preset" id="preset">
+    <option value="" selected="selected">select</option>
+  </select>
+
+  <select name="style" id="style">
+    <option value="" selected="selected">select</option>
+  </select>
+
+   <div><textarea id="text" name="text" rows="10" cols="100" placeholder="write here"></textarea></div>
+
+  <div><textarea id="com" rows="1" cols="3"></textarea>
+    <textarea id="tag" rows="1" cols="2"></textarea>
+    <textarea id="hex" rows="1" cols="6"></textarea>
+    <button id="reload">reload</button>
+  </div>
+
+   <div><textarea id=output rows="10" cols="100" readonly> </textarea></div>
+
+   <button onclick="w3Copy()">copy</button>
+
+</body>
+</html>
