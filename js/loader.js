@@ -29,6 +29,9 @@ function loadparser()
   korjax.transformations.push([/o/g, "*"]);
   korjax.transformations.push([/O/g, "*"]);
 
+  let kanaya = new Base("KANAYA", "GA", "008141");
+  kanaya.case = new TitleCaps();
+
   p.config = etilea;
 
   p.library.push(etilea);
@@ -37,6 +40,8 @@ function loadparser()
   p.library.push(zelter);
   p.library.push(remael);
   p.library.push(korjax);
+
+  p.library.push(kanaya);
 
   return p;
 }
