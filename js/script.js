@@ -14,6 +14,22 @@
 var parser = loadparser();
 
 
+function importConfig(text)
+{
+  console.log(text);
+}
+
+function exportConfig()
+{
+  var textInput = JSON.stringify(parser.library);
+
+  var element = document.createElement('a');
+  element.setAttribute('href','data:text/plain;charset=utf-8, ' + encodeURIComponent(textInput));
+  element.setAttribute('download', 'library.txt');
+  document.body.appendChild(element);
+  element.click();
+}
+
 function updateOutput() {
   var textbox = document.getElementById("text");
   document.getElementById("output").innerHTML = parser.transform(textbox.value);
@@ -45,6 +61,8 @@ window.onload = function() {
   var com = document.getElementById("com");
   var hex = document.getElementById("hex");
   var rel = document.getElementById("reload");
+  var im = document.getElementById("import");
+  var ex = document.getElementById("export");
 
 
   for (var x in parser.library) {
@@ -55,6 +73,14 @@ window.onload = function() {
 
   for (var s in styles) {
     sel2.options[sel2.options.length] = new Option(styles[s], styles[s]);
+  }
+
+  im.oninput = function i() {
+    this.files[0].text().then( function(text) {importConfig(text);});
+  }
+
+  ex.onclick = function e() {
+    exportConfig();
   }
 
 
