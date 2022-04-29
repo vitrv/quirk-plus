@@ -7,6 +7,7 @@
 <script src="js/case.js"></script>
 <script src="js/styles.js"></script>
 <script src="js/loader.js"></script>
+<script src="js/status.js"></script>
 <script src="js/script.js"></script>
 <link rel="stylesheet" href="css/styles.css">
 </head>
@@ -31,12 +32,64 @@
   <div><textarea id="com" rows="1" cols="3"></textarea>
     <textarea id="tag" rows="1" cols="2"></textarea>
     <textarea id="hex" rows="1" cols="6"></textarea>
+    <textarea id="sc" rows="1" cols="16"></textarea>
     <button id="reload">reload</button>
   </div>
 
    <div><textarea id=output rows="10" cols="100" readonly> </textarea></div>
 
    <button onclick="w3Copy()">copy</button>
+   <button onclick="status_show()">show/hide status</button>
+   <div id="stat" style="display:none">
+     <div><div id=onmsg_label></div>
+       <textarea id=onmsg rows="1" cols="100" readonly style=> </textarea>
+       <button onclick="w3Copy_stat('onmsg')">copy</button></div>
+
+     <div><div id=offmsg_label></div>
+       <textarea id=offmsg rows="1" cols="100" readonly> </textarea>
+      <button onclick="w3Copy_stat('offmsg')">copy</button></div>
+
+     <div><div id=onidle_label></div>
+       <textarea id=onidle rows="1" cols="100" readonly> </textarea>
+      <button onclick="w3Copy_stat('onidle')">copy</button></div>
+
+     <div><div id=offidle_label></div>
+       <textarea id=offidle rows="1" cols="100" readonly> </textarea>
+      <button onclick="w3Copy_stat('offidle')">copy</button></div>
+
+     <div><div id=pest_label></div>
+       <textarea id=pest rows="1" cols="100" readonly> </textarea>
+       <button onclick="w3Copy_stat('pest')">copy</button></div>
+
+     <div><div id=ceasepest_label></div>
+       <textarea id=ceasepest rows="1" cols="100" readonly> </textarea>
+       <button onclick="w3Copy_stat('ceasepest')">copy</button></div>
+
+     <div><div id=troll_label></div>
+       <textarea id=troll rows="1" cols="100" readonly> </textarea>
+       <button onclick="w3Copy_stat('troll')">copy</button></div>
+
+     <div><div id=ceasetroll_label></div>
+       <textarea id=ceasetroll rows="1" cols="100" readonly> </textarea>
+       <button onclick="w3Copy_stat('ceasetroll')">copy</button></div>
+
+     <div><div id=accept_label></div>
+       <textarea id=accept rows="1" cols="100" readonly> </textarea>
+      <button onclick="w3Copy_stat('accept')">copy</button></div>
+
+     <div><div id=block_label></div>
+       <textarea id=block rows="1" cols="100" readonly> </textarea>
+      <button onclick="w3Copy_stat('block')">copy</button></div>
+
+     <div><div id=unblock_label></div>
+       <textarea id=unblock rows="1" cols="100" readonly> </textarea>
+       <button onclick="w3Copy_stat('unblock')">copy</button></div>
+
+     <div><div id=img_label></div>
+       <textarea id=img rows="1" cols="100" readonly> </textarea>
+       <button onclick="w3Copy_stat('img')">copy</button></div>
+   </div>
+
 
 </body>
 </html>

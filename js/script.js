@@ -2,12 +2,11 @@
 
 /* TODO:
    -Bootstrap/colorful ui
+   -preset json parser
    -preset editor and serializer/loader
-   -tabs for preset editor
-   -update menu for new presets
-   -Title case and all caps
-   -take tags and commands for bb-formatted styles
-   -Add bbscript and colorscript styles
+   -dynamic tab for preset editor
+   -label input fields for commands, tags and tag color, and make them more user friendly
+   -tool for formatting walls
 */
 
 
@@ -30,15 +29,33 @@ function exportConfig()
   element.click();
 }
 
+function status_show() {
+
+  var vis = document.getElementById("stat").style.display;
+
+  if(vis == "none") document.getElementById("stat").style.display = "block";
+  else document.getElementById("stat").style.display = "none";;
+}
+
+
 function updateOutput() {
   var textbox = document.getElementById("text");
   document.getElementById("output").innerHTML = parser.transform(textbox.value);
+
+  document.getElementById("onmsg").innerHTML = online_msg(parser.config, parser.context);
+  document.getElementById("offmsg").innerHTML = offline_msg(parser.config, parser.context);
+  document.getElementById("onidle").innerHTML = idle_msg(parser.config, parser.context);
+  document.getElementById("offidle").innerHTML = offidle_msg(parser.config, parser.context);
+  document.getElementById("pest").innerHTML = req_pest(parser.config, parser.context);
+  document.getElementById("troll").innerHTML = req_troll(parser.config, parser.context);
+  document.getElementById("ceasepest").innerHTML = cease_pest(parser.config, parser.context);
+  document.getElementById("ceasetroll").innerHTML = cease_troll(parser.config, parser.context);
+  document.getElementById("accept").innerHTML = accept_msg(parser.config, parser.context);
+  document.getElementById("block").innerHTML = block_msg(parser.config, parser.context);
+  document.getElementById("unblock").innerHTML = unblock_msg(parser.config, parser.context);
+  document.getElementById("img").innerHTML = share_img(parser.config, parser.context);
 }
 
-/*function setTag(item, index, arr) {
-  var tag = document.getElementById("tag").value;
-  arr[index] = item + " " + tag
-}*/
 
 function w3Copy() {
   /* Get the text field */
@@ -60,6 +77,7 @@ window.onload = function() {
   var tag = document.getElementById("tag");
   var com = document.getElementById("com");
   var hex = document.getElementById("hex");
+  var sc = document.getElementById("sc");
   var rel = document.getElementById("reload");
   var im = document.getElementById("import");
   var ex = document.getElementById("export");
@@ -69,7 +87,9 @@ window.onload = function() {
     sel.options[sel.options.length] = new Option(parser.library[x].name, parser.library[x].name);
   }
 
-  let styles = ['No Style', 'Memo Style', 'Script Style', 'BBScript Style', 'PM Style']
+  let styles = ['No Style', 'Memo Style', 'Script Style', 'BBScript Style',
+  "BBMemo Style", 'PM Style', 'PM Strong Style', 'Discord Style', 'Block Style',
+  "PMFreeform Style"]
 
   for (var s in styles) {
     sel2.options[sel2.options.length] = new Option(styles[s], styles[s]);
@@ -92,6 +112,7 @@ window.onload = function() {
     parser.context.tag = tag.value;
     parser.context.hex = hex.value;
     parser.context.com = com.value;
+    parser.context.sc = sc.value;
     updateOutput();
   }
 
@@ -110,6 +131,10 @@ window.onload = function() {
     updateOutput();
   }
 
+  sc.oninput = function update() {
+    parser.context.sc = sc.value;
+    updateOutput();
+  }
 
   sel.onchange = function update() {
     parser.config = parser.library[sel.selectedIndex-1];
@@ -132,6 +157,21 @@ window.onload = function() {
         break;
       case ("PM Style"):
         parser.style = new PMStyle();
+        break;
+      case ("Discord Style"):
+        parser.style = new DiscordStyle();
+        break;
+      case ("BBMemo Style"):
+        parser.style = new BBMemoStyle();
+        break;
+      case ("PM Strong Style"):
+        parser.style = new PMStrongStyle();
+        break;
+      case ("Block Style"):
+        parser.style = new BlockStyle();
+        break;
+      case ("PMFreeform Style"):
+        parser.style = new PMFreeformStyle();
         break;
       default:
         parser.style = new MemoStyle();

@@ -7,6 +7,7 @@ class Parser {
       com: "",
       tag: "",
       hex: "",
+      sc: ""
     };
   }
 
@@ -30,8 +31,9 @@ class Parser {
 
 
 class Base {
-  constructor(name, acronym, hex) {
+  constructor(name, handle, acronym, hex) {
     this.name = name;
+    this.handle = handle;
     this.acronym = acronym;
     this.hex = hex;
     this.transformations = [];

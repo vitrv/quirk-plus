@@ -67,3 +67,18 @@ class InvCaps extends Caps {
     return words.join(" ");
   }
 }
+
+class Lepioz extends Caps {
+  constructor() {
+    super();
+  }
+
+  transform(n, line) {
+    let words = line.split(" ");
+    let tail = words[words.length-1];
+    if (tail.match(/[?!.\s]/) != null)
+    tail = tail.slice(0, tail.search(/[?!.\s]/));
+
+    return tail + ", " + words.join(" ");
+  }
+}
