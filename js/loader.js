@@ -105,12 +105,13 @@ function loadparser()
   //p.library.push(lepioz);
   p.library.push(siabza);
   //p.library.push(cezari);
-  p.library.push(soira);
+  //p.library.push(soira);
   //p.library.push(tiff);
   p.library.push(nora);
   p.library.push(noel);
   //p.library.push(nino);
   p.library.push(cait);
+  p.library.push(mira);
 
   return p;
 }
