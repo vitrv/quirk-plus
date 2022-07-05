@@ -78,9 +78,13 @@ function loadparser()
   let cezari = new Base("CEZARI", "ancillaryTravesty", "AT", "2b0057");
   cezari.case = new AltCaps();
 
-  let soira = new Base("SOIRA", "visceralNeology", "VN", "00508b");
-  let tiff = new Base("TIFF", "foxtrotCharmante", "FC", "d23162");
+//  let soira = new Base("SOIRA", "visceralNeology", "VN", "00508b");
+//  let tiff = new Base("TIFF", "foxtrotCharmante", "FC", "d23162");
   let nora = new Base("NORA", "radiantAmbivalence", "RA", "0c83e6");
+  let noel = new Base("NOËL", "transientRiposte", "TR", "069aa9");
+//  let nino = new Base("NINO", "absolvedDendrite", "AD", "7f8dde");
+  let cait = new Base("CAIT", "galvanizingTeslas", "GT", "5285ff");
+  let mira = new Base("MIRA", "aestheticallyEndearing", "AE", "5ebcdb");
 
   p.config = etilea;
 
@@ -90,20 +94,23 @@ function loadparser()
   p.library.push(zelter);
   p.library.push(remael);
   p.library.push(korjax);
-  p.library.push(ammola);
+  //p.library.push(ammola);
   p.library.push(nolvei);
-  p.library.push(sionna);
-  p.library.push(arlyne);
+  //p.library.push(sionna);
+  //p.library.push(arlyne);
   p.library.push(kalias);
   p.library.push(amyria);
-  p.library.push(skylus);
-  p.library.push(nerais);
-  p.library.push(lepioz);
+  //p.library.push(skylus);
+  //p.library.push(nerais);
+  //p.library.push(lepioz);
   p.library.push(siabza);
-  p.library.push(cezari);
+  //p.library.push(cezari);
   p.library.push(soira);
-  p.library.push(tiff);
+  //p.library.push(tiff);
   p.library.push(nora);
+  p.library.push(noel);
+  //p.library.push(nino);
+  p.library.push(cait);
 
   return p;
 }
